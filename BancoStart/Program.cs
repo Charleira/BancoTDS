@@ -1,15 +1,56 @@
 ﻿namespace Banco
 {
+    using System.Reflection.Metadata.Ecma335;
     using System.Security.Cryptography;
     using System.Threading;
     class BancoStart
     {
-        public bool start = false;
-        public float saque;
+
+        static int InicioM()
+        {
+            Console.WriteLine("\t\t\t\t\t*******\tBEM VINDO AO BANCO TRANSDATA\t*******");
+            Console.WriteLine("\n\n\n\t\t\t\t\t1 - Realizar Saque\n\n\n\t\t\t\t\t2 - Verificar Saldo\n\n\n\t\t\t\t\t0 - Sair");
+
+            int Inicio = int.Parse(Console.ReadLine());
+
+            for (int i = Inicio; i!=0;)
+            {
+                if (i == 1)
+                {
+                    Console.WriteLine("realizar saque");
+                    Thread.Sleep(150);
+                    break;
+                }
+                else if (i == 2)
+                {
+                    Console.WriteLine("verificar Saldo");
+                    Thread.Sleep(150);
+                    break;
+                }
+              
+
+            }
+            Console.Clear();
+
+
+
+            return Inicio;
+        }
+
         static void Main()
         {
-
-            int q200 = 100, q100 = 300, q50 = 500, q25 = 600, q10 = 700, q05 = 800, q02 = 1000, Cedulas = 0, Saldo = 600; //variaveis  
+            int q200 = 100, q100 = 300, q50 = 500, q25 = 600, q10 = 700, q05 = 800, q02 = 1000, Cedulas = 0, Saldo1 = 600; //variaveis  
+            if (InicioM()==0)
+            {
+                Console.WriteLine("Saindo do sistema...");
+                Environment.Exit (0);
+            }
+            else if (InicioM()==2)
+            { 
+                Console.WriteLine($"O seu saldo e de R$ {Saldo1}");
+                Environment.Exit (0);
+            }
+            //para baixo esta certo, mas o menu nao funciona
             Console.WriteLine("cedulas disponiveis\n");
             Console.WriteLine(" R$ 200,00\t" + q200);
             Console.WriteLine("\n R$ 100,00\t" + q100);
@@ -25,9 +66,11 @@
             {
                 //Boolean start = true;
                 Console.WriteLine("Selecione o valor que deseja sacar: "); // valor de saque
-                int Saque = int.Parse(Console.ReadLine());
+                int SaqueI = int.Parse(Console.ReadLine());
                 Console.Clear();
-                if (Saque < Saldo)
+                int Saque = SaqueI;
+               
+                if (Saque < Saldo1)
                 {
                     Console.WriteLine("O saque será de: R$ " + Saque);
               
@@ -90,11 +133,12 @@
 
                     }
                     Console.Clear();
-                    Console.WriteLine($" A quantidade de Cedulas sacadas para o valor R$ {Saque} foi de: {Cedulas}"); //respsota caso haja o saque
+                    Console.WriteLine($" A quantidade de Cedulas sacadas para o valor R$ {SaqueI} foi de: {Cedulas}"); //resposta caso haja o saque
+                 //alterar a variavel SAQUE   
                 }
                 else
                 {
-                    Console.WriteLine($"Saldo indisponivel o seu saldo é de {Saldo}"); //resposta com saldo 
+                    Console.WriteLine($"Saldo indisponivel o seu saldo é de {Saldo1}"); //resposta com saldo 
                 }
             }
 
