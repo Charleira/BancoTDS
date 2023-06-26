@@ -5,13 +5,16 @@
     using System.Threading;
     class BancoStart
     {
-
+        
         static int InicioM()
         {
             Console.WriteLine("\t\t\t\t\t*******\tBEM VINDO AO BANCO TRANSDATA\t*******");
             Console.WriteLine("\n\n\n\t\t\t\t\t1 - Realizar Saque\n\n\n\t\t\t\t\t2 - Verificar Saldo\n\n\n\t\t\t\t\t0 - Sair");
 
             int Inicio = int.Parse(Console.ReadLine());
+
+            
+
 
             for (int i = Inicio; i!=0;)
             {
@@ -27,12 +30,18 @@
                     Thread.Sleep(150);
                     break;
                 }
-              
+
+                //Tryparse para verificação falha
+                if (int.TryParse(Console.ReadLine(), out Inicio))
+                {
+                }
+                else
+                {
+                    Console.WriteLine("O valor inserido não é um número inteiro válido.");
+                }
 
             }
             Console.Clear();
-
-
 
             return Inicio;
         }
@@ -40,15 +49,20 @@
         static void Main()
         {
             int q200 = 100, q100 = 300, q50 = 500, q25 = 600, q10 = 700, q05 = 800, q02 = 1000, Cedulas = 0, Saldo1 = 600; //variaveis  
-            if (InicioM()==0)
+            if (InicioM() == 2)
             {
-                Console.WriteLine("Saindo do sistema...");
-                Environment.Exit (0);
-            }
-            else if (InicioM()==2)
-            { 
                 Console.WriteLine($"O seu saldo e de R$ {Saldo1}");
-                Environment.Exit (0);
+                Environment.Exit(0);
+            }
+            while (InicioM() != 1)
+            {
+                if (InicioM() == 0)
+                {
+                    Console.WriteLine("Saindo do sistema...");
+                    Environment.Exit(0);
+                }
+                
+                continue;
             }
             //para baixo esta certo, mas o menu nao funciona
             Console.WriteLine("cedulas disponiveis\n");
