@@ -1,8 +1,5 @@
 ﻿namespace Banco
-{
-    using System.ComponentModel.Design;
-    using System.Reflection.Metadata.Ecma335;
-    using System.Security.Cryptography;
+{ 
     using System.Threading;
     class BancoStart
     {
