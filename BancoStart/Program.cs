@@ -121,7 +121,7 @@
                                     break;
                                 case >= 20:
                                     q20--;
-                                    Console.WriteLine("\nCedula de R$ 25 sacada");
+                                    Console.WriteLine("\nCedula de R$ 20 sacada");
                                     Thread.Sleep(1500);
                                     Saque -= 20;
                                     Cedulas++;
@@ -171,6 +171,13 @@
                                     Console.WriteLine("\nCedula de R$ 50 sacada");
                                     Thread.Sleep(1500);
                                     Saque -= 50;
+                                    Cedulas++;
+                                    break;
+                                case >= 20:
+                                    q20--;
+                                    Console.WriteLine("\nCedula de R$ 20 sacada");
+                                    Thread.Sleep(1500);
+                                    Saque -= 20;
                                     Cedulas++;
                                     break;
                                 case >= 10:
