@@ -15,7 +15,6 @@
             {
                 if (Inicio == 1 || Inicio == 2 || Inicio == 0)
                 {
-
                     if (Inicio == 1)
                     {
                         Console.WriteLine("realizar saque");
